@@ -19,6 +19,9 @@ public:
     Calculatrice(QWidget *parent = nullptr);
     ~Calculatrice();
 
+public slots:
+    void UpdateUI();
+
 private:
     Ui::Calculatrice *ui;
 

@@ -4,18 +4,21 @@
 #include <algorithm>
 #include "Models/IntRangeValidator.h"
 
-// --- CONSTRUCTEUR ---
 Calculatrice::Calculatrice(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::Calculatrice)
 {
     ui->setupUi(this);
 
-    // 1. Initialisation des vecteurs
+    // Initialisation des vecteurs
     setVector(vIPnetwork, ui->partie1, "leIP");
     setVector(vIPnetworkBinary, ui->partie1, "lBinary");
 
-    // 2. Application du validateur (Sécurité 0-255)
+    // Setup de l'ecoute des signaux
+    //QObject::connect(w,&sender,&receiver)
+
+
+    // Application du validateur (Sécurité 0-255)
     for (int i = 0; i < vIPnetwork.size(); ++i) {
         // On récupère la case (QLineEdit)
         QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[i]);
@@ -34,24 +37,24 @@ Calculatrice::~Calculatrice()
     delete ui;
 }
 
-// --- FONCTION SETVECTOR ---
 void Calculatrice::setVector(QVector<QWidget*> &v, const QWidget *w, QString motif)
 {
     v.clear();
-
     // Récupérer les enfants
     QList<QWidget*> childs = w->findChildren<QWidget*>();
     QRegularExpression regExp("^" + motif + ".*");
-
     // Filtrer
     foreach (QWidget *child, childs) {
         if (child->objectName().contains(regExp)) {
             v.append(child);
         }
     }
-
     // Trier
     std::sort(v.begin(), v.end(), [](QWidget* a, QWidget* b) {
         return a->objectName() < b->objectName();
     });
+}
+
+void Calculatrice::UpdateUI(){
+    //Implémenter la logique update UI des 43 labels
 }
