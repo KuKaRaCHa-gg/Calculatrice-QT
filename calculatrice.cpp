@@ -12,8 +12,8 @@ Calculatrice::Calculatrice(QWidget *parent)
     ui->setupUi(this);
 
     // 1. Initialisation des vecteurs
-    setVector(vIPnetwork, ui->widget1, "leIP");
-    setVector(vIPnetworkBinary, ui->widget1, "lBinary");
+    setVector(vIPnetwork, ui->partie1, "leIP");
+    setVector(vIPnetworkBinary, ui->partie1, "lBinary");
 
     // 2. Application du validateur (Sécurité 0-255)
     for (int i = 0; i < vIPnetwork.size(); ++i) {

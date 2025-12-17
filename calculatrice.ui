@@ -104,142 +104,655 @@ QLabel[objectName^=&quot;lClasse&quot;] {
     <property name="bottomMargin">
      <number>20</number>
     </property>
-
     <item>
-     <widget class="QWidget" name="widget1" native="true">
+     <widget class="QWidget" name="partie1" native="true">
       <layout class="QGridLayout" name="gridLayout">
-       <property name="verticalSpacing"><number>10</number></property>
-
-       <item row="0" column="0"><widget class="QLabel" name="label"><property name="text"><string>Adresse IP</string></property></widget></item>
-
-       <item row="0" column="1"><widget class="QLineEdit" name="leIP1_1"><property name="text"><string>192</string></property></widget></item>
-       <item row="0" column="2"><widget class="QLabel" name="d1"><property name="text"><string>.</string></property></widget></item>
-       <item row="0" column="3"><widget class="QLineEdit" name="leIP1_2"><property name="text"><string>168</string></property></widget></item>
-       <item row="0" column="4"><widget class="QLabel" name="d2"><property name="text"><string>.</string></property></widget></item>
-       <item row="0" column="5"><widget class="QLineEdit" name="leIP1_3"><property name="text"><string>0</string></property></widget></item>
-       <item row="0" column="6"><widget class="QLabel" name="d3"><property name="text"><string>.</string></property></widget></item>
-       <item row="0" column="7"><widget class="QLineEdit" name="leIP1_4"><property name="text"><string>1</string></property></widget></item>
-       <item row="0" column="8"><widget class="QLabel" name="sl"><property name="text"><string>/</string></property></widget></item>
-       <item row="0" column="9"><widget class="QLabel" name="lNetworkSize"><property name="text"><string>24</string></property></widget></item>
-
-       <item row="1" column="1"><widget class="QLabel" name="lBinary1_1"><property name="text"><string>11000000</string></property></widget></item>
-       <item row="1" column="3"><widget class="QLabel" name="lBinary1_2"><property name="text"><string>10101000</string></property></widget></item>
-       <item row="1" column="5"><widget class="QLabel" name="lBinary1_3"><property name="text"><string>00000000</string></property></widget></item>
-       <item row="1" column="7"><widget class="QLabel" name="lBinary1_4"><property name="text"><string>00000001</string></property></widget></item>
-
+       <property name="verticalSpacing">
+        <number>10</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="AdresseIpLabel">
+         <property name="text">
+          <string>Adresse IP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="inputIp1">
+         <property name="text">
+          <string>192</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="dot1">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="inputIp2">
+         <property name="text">
+          <string>168</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="dot2">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="inputIp3">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLabel" name="dot3">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7">
+        <widget class="QLineEdit" name="inputIp4">
+         <property name="text">
+          <string>1</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="8">
+        <widget class="QLabel" name="slash">
+         <property name="text">
+          <string>/</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="9">
+        <widget class="QLabel" name="lNetworkSize">
+         <property name="text">
+          <string>24</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="binaire1">
+         <property name="text">
+          <string>11000000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLabel" name="binaire2">
+         <property name="text">
+          <string>10101000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="binaire3">
+         <property name="text">
+          <string>00000000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="7">
+        <widget class="QLabel" name="binaire4">
+         <property name="text">
+          <string>00000001</string>
+         </property>
+        </widget>
+       </item>
        <item row="2" column="1" colspan="9">
         <widget class="QSlider" name="slider">
-         <property name="orientation"><enum>Qt::Horizontal</enum></property>
-         <property name="minimum"><number>1</number></property>
-         <property name="maximum"><number>32</number></property>
-         <property name="value"><number>24</number></property>
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>32</number>
+         </property>
+         <property name="value">
+          <number>24</number>
+         </property>
+         <property name="orientation">
+          <enum>Qt::Orientation::Horizontal</enum>
+         </property>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
-
-    <item><widget class="Line" name="line1"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
-
     <item>
-     <layout class="QGridLayout" name="gridResults">
-      <property name="verticalSpacing"><number>12</number></property>
-
-      <item row="0" column="0"><widget class="QLabel" name="tMask"><property name="text"><string>Masque de réseau</string></property></widget></item>
-      <item row="0" column="1"><widget class="QLabel" name="lResMask1"><property name="text"><string>255</string></property></widget></item>
-      <item row="0" column="2"><widget class="QLabel" name="s1"><property name="text"><string>.</string></property></widget></item>
-      <item row="0" column="3"><widget class="QLabel" name="lResMask2"><property name="text"><string>255</string></property></widget></item>
-      <item row="0" column="4"><widget class="QLabel" name="s2"><property name="text"><string>.</string></property></widget></item>
-      <item row="0" column="5"><widget class="QLabel" name="lResMask3"><property name="text"><string>255</string></property></widget></item>
-      <item row="0" column="6"><widget class="QLabel" name="s3"><property name="text"><string>.</string></property></widget></item>
-      <item row="0" column="7"><widget class="QLabel" name="lResMask4"><property name="text"><string>0</string></property></widget></item>
-
-      <item row="1" column="1"><widget class="QLabel" name="lResMaskBin1"><property name="text"><string>11111111</string></property></widget></item>
-      <item row="1" column="3"><widget class="QLabel" name="lResMaskBin2"><property name="text"><string>11111111</string></property></widget></item>
-      <item row="1" column="5"><widget class="QLabel" name="lResMaskBin3"><property name="text"><string>11111111</string></property></widget></item>
-      <item row="1" column="7"><widget class="QLabel" name="lResMaskBin4"><property name="text"><string>00000000</string></property></widget></item>
-
-      <item row="2" column="0"><widget class="QLabel" name="tDiff"><property name="text"><string>Adresse de diffusion</string></property></widget></item>
-      <item row="2" column="1"><widget class="QLabel" name="lResDiff1"><property name="text"><string>192</string></property></widget></item>
-      <item row="2" column="2"><widget class="QLabel" name="s4"><property name="text"><string>.</string></property></widget></item>
-      <item row="2" column="3"><widget class="QLabel" name="lResDiff2"><property name="text"><string>168</string></property></widget></item>
-      <item row="2" column="4"><widget class="QLabel" name="s5"><property name="text"><string>.</string></property></widget></item>
-      <item row="2" column="5"><widget class="QLabel" name="lResDiff3"><property name="text"><string>0</string></property></widget></item>
-      <item row="2" column="6"><widget class="QLabel" name="s6"><property name="text"><string>.</string></property></widget></item>
-      <item row="2" column="7"><widget class="QLabel" name="lResDiff4"><property name="text"><string>255</string></property></widget></item>
-
-      <item row="3" column="1"><widget class="QLabel" name="lResDiffBin1"><property name="text"><string>11000000</string></property></widget></item>
-      <item row="3" column="3"><widget class="QLabel" name="lResDiffBin2"><property name="text"><string>10101000</string></property></widget></item>
-      <item row="3" column="5"><widget class="QLabel" name="lResDiffBin3"><property name="text"><string>00000000</string></property></widget></item>
-      <item row="3" column="7"><widget class="QLabel" name="lResDiffBin4"><property name="text"><string>11111111</string></property></widget></item>
-
-      <item row="4" column="0"><widget class="QLabel" name="tHosts"><property name="text"><string>Nombre max d'hôtes</string></property></widget></item>
-      <item row="4" column="1" colspan="2"><widget class="QLabel" name="lResHosts"><property name="text"><string>254</string></property><property name="alignment"><set>Qt::AlignLeft|Qt::AlignVCenter</set></property></widget></item>
-
-      <item row="5" column="0"><widget class="QLabel" name="tRange"><property name="text"><string>Etendue des adresses</string></property></widget></item>
-      <item row="5" column="1"><widget class="QLabel" name="lResStart1"><property name="text"><string>192</string></property></widget></item>
-      <item row="5" column="2"><widget class="QLabel" name="s7"><property name="text"><string>.</string></property></widget></item>
-      <item row="5" column="3"><widget class="QLabel" name="lResStart2"><property name="text"><string>168</string></property></widget></item>
-      <item row="5" column="4"><widget class="QLabel" name="s8"><property name="text"><string>.</string></property></widget></item>
-      <item row="5" column="5"><widget class="QLabel" name="lResStart3"><property name="text"><string>0</string></property></widget></item>
-      <item row="5" column="6"><widget class="QLabel" name="s9"><property name="text"><string>.</string></property></widget></item>
-      <item row="5" column="7"><widget class="QLabel" name="lResStart4"><property name="text"><string>1</string></property></widget></item>
-
-      <item row="6" column="1"><widget class="QLabel" name="lResStartBin1"><property name="text"><string>11000000</string></property></widget></item>
-      <item row="6" column="3"><widget class="QLabel" name="lResStartBin2"><property name="text"><string>10101000</string></property></widget></item>
-      <item row="6" column="5"><widget class="QLabel" name="lResStartBin3"><property name="text"><string>00000000</string></property></widget></item>
-      <item row="6" column="7"><widget class="QLabel" name="lResStartBin4"><property name="text"><string>00000001</string></property></widget></item>
-
-      <item row="7" column="0"><widget class="QLabel" name="tTo"><property name="text"><string>à</string></property><property name="alignment"><set>Qt::AlignRight|Qt::AlignVCenter</set></property></widget></item>
-      <item row="7" column="1"><widget class="QLabel" name="lResEnd1"><property name="text"><string>192</string></property></widget></item>
-      <item row="7" column="2"><widget class="QLabel" name="s10"><property name="text"><string>.</string></property></widget></item>
-      <item row="7" column="3"><widget class="QLabel" name="lResEnd2"><property name="text"><string>168</string></property></widget></item>
-      <item row="7" column="4"><widget class="QLabel" name="s11"><property name="text"><string>.</string></property></widget></item>
-      <item row="7" column="5"><widget class="QLabel" name="lResEnd3"><property name="text"><string>0</string></property></widget></item>
-      <item row="7" column="6"><widget class="QLabel" name="s12"><property name="text"><string>.</string></property></widget></item>
-      <item row="7" column="7"><widget class="QLabel" name="lResEnd4"><property name="text"><string>254</string></property></widget></item>
-
-      <item row="8" column="1"><widget class="QLabel" name="lResEndBin1"><property name="text"><string>11000000</string></property></widget></item>
-      <item row="8" column="3"><widget class="QLabel" name="lResEndBin2"><property name="text"><string>10101000</string></property></widget></item>
-      <item row="8" column="5"><widget class="QLabel" name="lResEndBin3"><property name="text"><string>00000000</string></property></widget></item>
-      <item row="8" column="7"><widget class="QLabel" name="lResEndBin4"><property name="text"><string>11111110</string></property></widget></item>
+     <widget class="Line" name="separateur1">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="partie2">
+      <property name="verticalSpacing">
+       <number>12</number>
+      </property>
+      <item row="0" column="0">
+       <widget class="QLabel" name="tMask">
+        <property name="text">
+         <string>Masque de réseau</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="1">
+       <widget class="QLabel" name="lResMask1">
+        <property name="text">
+         <string>255</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="2">
+       <widget class="QLabel" name="s1">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3">
+       <widget class="QLabel" name="lResMask2">
+        <property name="text">
+         <string>255</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="4">
+       <widget class="QLabel" name="s2">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="5">
+       <widget class="QLabel" name="lResMask3">
+        <property name="text">
+         <string>255</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="6">
+       <widget class="QLabel" name="s3">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="7">
+       <widget class="QLabel" name="lResMask4">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLabel" name="lResMaskBin1">
+        <property name="text">
+         <string>11111111</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLabel" name="lResMaskBin2">
+        <property name="text">
+         <string>11111111</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLabel" name="lResMaskBin3">
+        <property name="text">
+         <string>11111111</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLabel" name="lResMaskBin4">
+        <property name="text">
+         <string>00000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="0">
+       <widget class="QLabel" name="tDiff">
+        <property name="text">
+         <string>Adresse de diffusion</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="lResDiff1">
+        <property name="text">
+         <string>192</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="2">
+       <widget class="QLabel" name="s4">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLabel" name="lResDiff2">
+        <property name="text">
+         <string>168</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="4">
+       <widget class="QLabel" name="s5">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QLabel" name="lResDiff3">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="6">
+       <widget class="QLabel" name="s6">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="7">
+       <widget class="QLabel" name="lResDiff4">
+        <property name="text">
+         <string>255</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="1">
+       <widget class="QLabel" name="lResDiffBin1">
+        <property name="text">
+         <string>11000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLabel" name="lResDiffBin2">
+        <property name="text">
+         <string>10101000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QLabel" name="lResDiffBin3">
+        <property name="text">
+         <string>00000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="7">
+       <widget class="QLabel" name="lResDiffBin4">
+        <property name="text">
+         <string>11111111</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QLabel" name="tHosts">
+        <property name="text">
+         <string>Nombre max d'hôtes</string>
+        </property>
+       </widget>
+      </item>
+      <item row="4" column="1" colspan="2">
+       <widget class="QLabel" name="lResHosts">
+        <property name="text">
+         <string>254</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="0">
+       <widget class="QLabel" name="tRange">
+        <property name="text">
+         <string>Etendue des adresses</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="1">
+       <widget class="QLabel" name="lResStart1">
+        <property name="text">
+         <string>192</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="2">
+       <widget class="QLabel" name="s7">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="3">
+       <widget class="QLabel" name="lResStart2">
+        <property name="text">
+         <string>168</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="4">
+       <widget class="QLabel" name="s8">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="5">
+       <widget class="QLabel" name="lResStart3">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="6">
+       <widget class="QLabel" name="s9">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="5" column="7">
+       <widget class="QLabel" name="lResStart4">
+        <property name="text">
+         <string>1</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="1">
+       <widget class="QLabel" name="lResStartBin1">
+        <property name="text">
+         <string>11000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="3">
+       <widget class="QLabel" name="lResStartBin2">
+        <property name="text">
+         <string>10101000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="5">
+       <widget class="QLabel" name="lResStartBin3">
+        <property name="text">
+         <string>00000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="6" column="7">
+       <widget class="QLabel" name="lResStartBin4">
+        <property name="text">
+         <string>00000001</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="0">
+       <widget class="QLabel" name="tTo">
+        <property name="text">
+         <string>à</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignRight|Qt::AlignmentFlag::AlignTrailing|Qt::AlignmentFlag::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="1">
+       <widget class="QLabel" name="lResEnd1">
+        <property name="text">
+         <string>192</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="2">
+       <widget class="QLabel" name="s10">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="3">
+       <widget class="QLabel" name="lResEnd2">
+        <property name="text">
+         <string>168</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="4">
+       <widget class="QLabel" name="s11">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="5">
+       <widget class="QLabel" name="lResEnd3">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="6">
+       <widget class="QLabel" name="s12">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="7" column="7">
+       <widget class="QLabel" name="lResEnd4">
+        <property name="text">
+         <string>254</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="1">
+       <widget class="QLabel" name="lResEndBin1">
+        <property name="text">
+         <string>11000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="3">
+       <widget class="QLabel" name="lResEndBin2">
+        <property name="text">
+         <string>10101000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="5">
+       <widget class="QLabel" name="lResEndBin3">
+        <property name="text">
+         <string>00000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="8" column="7">
+       <widget class="QLabel" name="lResEndBin4">
+        <property name="text">
+         <string>11111110</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
-
-    <item><widget class="Line" name="line2"><property name="orientation"><enum>Qt::Horizontal</enum></property></widget></item>
-
     <item>
-     <layout class="QGridLayout" name="gridTest">
-      <item row="0" column="0"><widget class="QLabel" name="tTest"><property name="text"><string>Appartenance de l'adresse au réseau ?</string></property></widget></item>
-      <item row="0" column="3" colspan="5"><widget class="QLabel" name="lResAppartenance"><property name="text"><string>Affirmatif</string></property></widget></item>
-
-      <item row="1" column="1"><widget class="QLineEdit" name="leTest1"><property name="text"><string>192</string></property></widget></item>
-      <item row="1" column="2"><widget class="QLabel" name="tsep1"><property name="text"><string>.</string></property></widget></item>
-      <item row="1" column="3"><widget class="QLineEdit" name="leTest2"><property name="text"><string>168</string></property></widget></item>
-      <item row="1" column="4"><widget class="QLabel" name="tsep2"><property name="text"><string>.</string></property></widget></item>
-      <item row="1" column="5"><widget class="QLineEdit" name="leTest3"><property name="text"><string>0</string></property></widget></item>
-      <item row="1" column="6"><widget class="QLabel" name="tsep3"><property name="text"><string>.</string></property></widget></item>
-      <item row="1" column="7"><widget class="QLineEdit" name="leTest4"><property name="text"><string>100</string></property></widget></item>
-
-      <item row="2" column="1"><widget class="QLabel" name="lResTestBin1"><property name="text"><string>11000000</string></property></widget></item>
-      <item row="2" column="3"><widget class="QLabel" name="lResTestBin2"><property name="text"><string>10101000</string></property></widget></item>
-      <item row="2" column="5"><widget class="QLabel" name="lResTestBin3"><property name="text"><string>00000000</string></property></widget></item>
-      <item row="2" column="7"><widget class="QLabel" name="lResTestBin4"><property name="text"><string>01100100</string></property></widget></item>
-
-      <item row="3" column="0"><widget class="QLabel" name="tClass"><property name="text"><string>Classe</string></property></widget></item>
-      <item row="3" column="2"><widget class="QLabel" name="lClasseA"><property name="text"><string>A</string></property></widget></item>
-      <item row="3" column="3"><widget class="QLabel" name="lClasseB"><property name="text"><string>B</string></property></widget></item>
-      <item row="3" column="4"><widget class="QLabel" name="lClasseC"><property name="text"><string>C</string></property></widget></item>
-      <item row="3" column="5"><widget class="QLabel" name="lClasseD"><property name="text"><string>D</string></property></widget></item>
-      <item row="3" column="6"><widget class="QLabel" name="lClasseE"><property name="text"><string>E</string></property></widget></item>
+     <widget class="Line" name="separateur2">
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <layout class="QGridLayout" name="partie3">
+      <item row="0" column="0">
+       <widget class="QLabel" name="tTest">
+        <property name="text">
+         <string>Appartenance de l'adresse au réseau ?</string>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="3" colspan="5">
+       <widget class="QLabel" name="lResAppartenance">
+        <property name="text">
+         <string>Affirmatif</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="1">
+       <widget class="QLineEdit" name="leTest1">
+        <property name="text">
+         <string>192</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="2">
+       <widget class="QLabel" name="tsep1">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="3">
+       <widget class="QLineEdit" name="leTest2">
+        <property name="text">
+         <string>168</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="4">
+       <widget class="QLabel" name="tsep2">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="5">
+       <widget class="QLineEdit" name="leTest3">
+        <property name="text">
+         <string>0</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="6">
+       <widget class="QLabel" name="tsep3">
+        <property name="text">
+         <string>.</string>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="7">
+       <widget class="QLineEdit" name="leTest4">
+        <property name="text">
+         <string>100</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="1">
+       <widget class="QLabel" name="lResTestBin1">
+        <property name="text">
+         <string>11000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="3">
+       <widget class="QLabel" name="lResTestBin2">
+        <property name="text">
+         <string>10101000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="5">
+       <widget class="QLabel" name="lResTestBin3">
+        <property name="text">
+         <string>00000000</string>
+        </property>
+       </widget>
+      </item>
+      <item row="2" column="7">
+       <widget class="QLabel" name="lResTestBin4">
+        <property name="text">
+         <string>01100100</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="0">
+       <widget class="QLabel" name="ClasseLabel">
+        <property name="text">
+         <string>Classe</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="2">
+       <widget class="QLabel" name="ClasseALabel">
+        <property name="text">
+         <string>A</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="3">
+       <widget class="QLabel" name="ClasseBLabel">
+        <property name="text">
+         <string>B</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="4">
+       <widget class="QLabel" name="ClasseCLabel">
+        <property name="text">
+         <string>C</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="5">
+       <widget class="QLabel" name="ClasseDLabel">
+        <property name="text">
+         <string>D</string>
+        </property>
+       </widget>
+      </item>
+      <item row="3" column="6">
+       <widget class="QLabel" name="ClasseELabel">
+        <property name="text">
+         <string>E</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </item>
-
-    <item><spacer name="verticalSpacer"><property name="orientation"><enum>Qt::Vertical</enum></property><property name="sizeHint"><size><width>20</width><height>40</height></size></property></spacer></item>
-
    </layout>
   </widget>
-  <widget class="QMenuBar" name="menubar"><property name="geometry"><rect><x>0</x><y>0</y><width>950</width><height>22</height></rect></property></widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>950</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
