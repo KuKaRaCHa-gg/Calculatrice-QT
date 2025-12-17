@@ -14,8 +14,7 @@ public slots:
     void updateBinary(const QString &text);
 
 signals:
-    [cite_start]// C'est la flèche rouge du schéma ! [cite: 121-122]
-        void updateValid();
+    void updateValid();
 };
 
 #endif // BINARYDISPLAY_H

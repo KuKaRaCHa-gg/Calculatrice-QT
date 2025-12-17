@@ -9,15 +9,16 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Models/IntRangeValidator.cpp \
+    Models/Vecteur.cpp \
     binarydisplay.cpp \
-    intrangevalidator.cpp \
     main.cpp \
     calculatrice.cpp
 
 HEADERS += \
+    Models/IntRangeValidator.h \
     binarydisplay.h \
-    calculatrice.h \
-    intrangevalidator.h
+    calculatrice.h
 
 FORMS += \
     calculatrice.ui

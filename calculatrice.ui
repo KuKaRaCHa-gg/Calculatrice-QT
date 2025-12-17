@@ -749,6 +749,9 @@ QLabel[objectName^=&quot;lClasse&quot;] {
         <property name="text">
          <string>B</string>
         </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
        </widget>
       </item>
       <item row="3" column="4">
@@ -762,6 +765,9 @@ QLabel[objectName^=&quot;lClasse&quot;] {
        <widget class="QLabel" name="ClasseDLabel">
         <property name="text">
          <string>D</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
         </property>
        </widget>
       </item>

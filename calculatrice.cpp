@@ -2,7 +2,7 @@
 #include "ui_calculatrice.h"
 #include <QRegularExpression>
 #include <algorithm>
-#include "intrangevalidator.h"
+#include "Models/IntRangeValidator.h"
 
 // --- CONSTRUCTEUR ---
 Calculatrice::Calculatrice(QWidget *parent)
