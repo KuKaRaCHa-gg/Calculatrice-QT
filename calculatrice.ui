@@ -110,66 +110,27 @@ QLabel[objectName^=&quot;lClasse&quot;] {
        <property name="verticalSpacing">
         <number>10</number>
        </property>
-       <item row="0" column="0">
-        <widget class="QLabel" name="AdresseIpLabel">
-         <property name="text">
-          <string>Adresse IP</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="1">
-        <widget class="QLineEdit" name="inputIp1">
-         <property name="text">
-          <string>192</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="2">
-        <widget class="QLabel" name="dot1">
-         <property name="text">
-          <string>.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="3">
-        <widget class="QLineEdit" name="inputIp2">
-         <property name="text">
-          <string>168</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="4">
-        <widget class="QLabel" name="dot2">
-         <property name="text">
-          <string>.</string>
-         </property>
-        </widget>
-       </item>
-       <item row="0" column="5">
-        <widget class="QLineEdit" name="inputIp3">
-         <property name="text">
-          <string>0</string>
-         </property>
-        </widget>
-       </item>
        <item row="0" column="6">
-        <widget class="QLabel" name="dot3">
+        <widget class="QLabel" name="lPoint1_3">
          <property name="text">
           <string>.</string>
          </property>
         </widget>
        </item>
        <item row="0" column="7">
-        <widget class="QLineEdit" name="inputIp4">
+        <widget class="QLineEdit" name="leIP1_4">
          <property name="text">
           <string>1</string>
          </property>
         </widget>
        </item>
-       <item row="0" column="8">
-        <widget class="QLabel" name="slash">
+       <item row="1" column="3">
+        <widget class="QLabel" name="lBinary1_2">
          <property name="text">
-          <string>/</string>
+          <string>10101000</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
          </property>
         </widget>
        </item>
@@ -180,31 +141,10 @@ QLabel[objectName^=&quot;lClasse&quot;] {
          </property>
         </widget>
        </item>
-       <item row="1" column="1">
-        <widget class="QLabel" name="binaire1">
+       <item row="0" column="3">
+        <widget class="QLineEdit" name="leIP1_2">
          <property name="text">
-          <string>11000000</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="3">
-        <widget class="QLabel" name="binaire2">
-         <property name="text">
-          <string>10101000</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="5">
-        <widget class="QLabel" name="binaire3">
-         <property name="text">
-          <string>00000000</string>
-         </property>
-        </widget>
-       </item>
-       <item row="1" column="7">
-        <widget class="QLabel" name="binaire4">
-         <property name="text">
-          <string>00000001</string>
+          <string>168</string>
          </property>
         </widget>
        </item>
@@ -221,6 +161,99 @@ QLabel[objectName^=&quot;lClasse&quot;] {
          </property>
          <property name="orientation">
           <enum>Qt::Orientation::Horizontal</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLabel" name="lBinary1_1">
+         <property name="text">
+          <string>11000000</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="7">
+        <widget class="QLabel" name="lBinary1_4">
+         <property name="text">
+          <string>00000001</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4">
+        <widget class="QLabel" name="lPoint1_2">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="leIP1_1">
+         <property name="text">
+          <string>192</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="5">
+        <widget class="QLineEdit" name="leIP1_3">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="8">
+        <widget class="QLabel" name="lSlash">
+         <property name="text">
+          <string>/</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="AdresseIpLabel">
+         <property name="text">
+          <string>Adresse IP</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="lBinary1_3">
+         <property name="text">
+          <string>00000000</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QLabel" name="lPoint1_1">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="lPoint2_1">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="lPoint2_2">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QLabel" name="lPoint2_3">
+         <property name="text">
+          <string>.</string>
          </property>
         </widget>
        </item>
