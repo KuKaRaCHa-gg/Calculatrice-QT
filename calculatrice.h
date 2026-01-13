@@ -20,7 +20,7 @@ public:
     ~Calculatrice();
 
 public slots:
-    // --- C'EST CETTE LIGNE QUI MANQUAIT ---
+    // On garde la version minuscule pour correspondre au .cpp
     void updateUI();
 
 private:

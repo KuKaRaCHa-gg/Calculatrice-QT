@@ -18,7 +18,7 @@ Calculatrice::Calculatrice(QWidget *parent)
     setVector(vIPnetwork, ui->partie1, "leIP");
     setVector(vIPnetworkBinary, ui->partie1, "lBinary");
 
-    // 2. Configuration
+    // 2. Configuration des validateurs et des connexions
     for (int i = 0; i < vIPnetwork.size(); ++i) {
         QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[i]);
         BinaryDisplay *bin = qobject_cast<BinaryDisplay*>(vIPnetworkBinary[i]);
@@ -27,14 +27,17 @@ Calculatrice::Calculatrice(QWidget *parent)
             IntRangeValidator *validator = new IntRangeValidator(0, 255, le);
             le->setValidator(validator);
 
+            // Connexion : Changement de texte -> Mise à jour du binaire local
             connect(le, &QLineEdit::textChanged, bin, &BinaryDisplay::updateBinary);
+            // Connexion : Binaire valide -> Recalcul de toute l'interface
             connect(bin, &BinaryDisplay::updateValid, this, &Calculatrice::updateUI);
         }
     }
 
+    // Connexion du Slider
     connect(ui->slider, &QSlider::valueChanged, this, &Calculatrice::updateUI);
 
-    // Force l'affichage initial
+    // Force l'affichage initial pour que les champs ne soient pas vides au lancement
     if (!vIPnetwork.isEmpty()) {
         QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[0]);
         if(le) emit le->textChanged(le->text());
@@ -61,7 +64,7 @@ void Calculatrice::updateUI()
     }
     unsigned int ipAddress = (ipValues[0] << 24) | (ipValues[1] << 16) | (ipValues[2] << 8) | ipValues[3];
 
-    // Calculs
+    // Calculs Mathématiques
     unsigned int mask = (cidr == 0) ? 0 : (~0u) << (32 - cidr);
     unsigned int networkAddr = ipAddress & mask;
     unsigned int broadcastAddr = networkAddr | (~mask);
@@ -83,7 +86,7 @@ void Calculatrice::updateUI()
         }
     }
 
-    // Helper pour afficher les résultats
+    // Helper (Fonction locale) pour afficher les résultats dans les labels de l'UI
     auto displayResult = [](unsigned int val, QLabel* l1, QLabel* l2, QLabel* l3, QLabel* l4,
                             QLabel* lb1, QLabel* lb2, QLabel* lb3, QLabel* lb4) {
         int o1 = (val >> 24) & 0xFF;
@@ -102,6 +105,7 @@ void Calculatrice::updateUI()
         if(lb4) lb4->setText(QString("%1").arg(o4, 8, 2, '0'));
     };
 
+    // Appel du helper pour chaque section (Masque, Diffusion, Début, Fin)
     displayResult(mask, ui->lResMask1, ui->lResMask2, ui->lResMask3, ui->lResMask4,
                   ui->lResMaskBin1, ui->lResMaskBin2, ui->lResMaskBin3, ui->lResMaskBin4);
 
