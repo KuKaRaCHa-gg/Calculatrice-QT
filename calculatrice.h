@@ -4,8 +4,8 @@
 #include <QMainWindow>
 #include <QVector>
 #include <QWidget>
-#include <QLineEdit> // Utile pour manipuler les champs
-#include <QLabel>    // Utile pour les affichages
+#include <QLineEdit>
+#include <QLabel>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Calculatrice; }
@@ -19,14 +19,16 @@ public:
     Calculatrice(QWidget *parent = nullptr);
     ~Calculatrice();
 
+public slots:
+    // --- C'EST CETTE LIGNE QUI MANQUAIT ---
+    void updateUI();
+
 private:
     Ui::Calculatrice *ui;
 
-
-    QVector<QWidget*> vIPnetwork;       //leIP1_1, leIP1_2, etc.
-    QVector<QWidget*> vIPnetworkBinary; // lBinary1_1, lBinary1_2, etc.
-
+    QVector<QWidget*> vIPnetwork;       // leIP1_1, leIP1_2...
+    QVector<QWidget*> vIPnetworkBinary; // lBinary1_1, lBinary1_2...
 
     void setVector(QVector<QWidget*> &v, const QWidget *w, QString motif);
 };
-#endif
+#endif // CALCULATRICE_H
