@@ -163,6 +163,46 @@ void Calculatrice::updateUI()
         ui->lResAppartenance->setStyleSheet("background-color: #c0392b; color: white; font-weight: bold; border-radius: 4px; padding: 5px;");
     }
 
+    // Classe IP
+
+    //IP réseau (partie 1)
+    QVector<int> netValues;
+    for (int i = 0; i < vIPnetwork.size(); ++i) {
+        QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[i]);
+        netValues.append(le ? le->text().toInt() : 0);
+    }
+
+    unsigned int networkIP =
+        (netValues[0] << 24) |
+        (netValues[1] << 16) |
+        (netValues[2] << 8)  |
+        netValues[3];
+
+    int firstOctet = netValues[0];
+
+    auto resetClasseStyle = [this]() {
+        ui->ClasseALabel->setStyleSheet("");
+        ui->ClasseBLabel->setStyleSheet("");
+        ui->ClasseCLabel->setStyleSheet("");
+        ui->ClasseDLabel->setStyleSheet("");
+        ui->ClasseELabel->setStyleSheet("");
+    };
+
+    resetClasseStyle();
+
+    QLabel *activeClasse = nullptr;
+
+    if (firstOctet >= 1   && firstOctet <= 126) activeClasse = ui->ClasseALabel;
+    else if (firstOctet >= 128 && firstOctet <= 191) activeClasse = ui->ClasseBLabel;
+    else if (firstOctet >= 192 && firstOctet <= 223) activeClasse = ui->ClasseCLabel;
+    else if (firstOctet >= 224 && firstOctet <= 239) activeClasse = ui->ClasseDLabel;
+    else if (firstOctet >= 240 && firstOctet <= 255) activeClasse = ui->ClasseELabel;
+
+    if (activeClasse) {
+        activeClasse->setStyleSheet(
+            "background-color:#3498db; color:white; border-radius:3px;");
+    }
+
 }
 
 void Calculatrice::updateHost()
@@ -215,7 +255,7 @@ void Calculatrice::updateHost()
 
     // Classe IP
 
-    int firstOctet = testValues[0];
+    int firstOctet = netValues[0];
 
     auto resetClasseStyle = [this]() {
         ui->ClasseALabel->setStyleSheet("");
