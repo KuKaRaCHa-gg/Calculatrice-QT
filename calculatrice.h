@@ -1,6 +1,7 @@
 #ifndef CALCULATRICE_H
 #define CALCULATRICE_H
 
+
 #include <QMainWindow>
 #include <QVector>
 #include <QWidget>
@@ -28,6 +29,8 @@ private:
 
     QVector<QWidget*> vIPnetwork;       // leIP1_1, leIP1_2...
     QVector<QWidget*> vIPnetworkBinary; // lBinary1_1, lBinary1_2...
+    QVector<QWidget*> vIPtest;       // Pour les QLineEdit du bas
+    QVector<QWidget*> vIPtestBinary; // Pour les BinaryDisplay du bas
 
     void setVector(QVector<QWidget*> &v, const QWidget *w, QString motif);
 };

@@ -15,8 +15,13 @@ Calculatrice::Calculatrice(QWidget *parent)
     ui->setupUi(this);
 
     // 1. Remplissage des vecteurs
+
     setVector(vIPnetwork, ui->partie1, "leIP");
     setVector(vIPnetworkBinary, ui->partie1, "lBinary");
+
+    // 2. AJOUT : Remplissage des vecteurs pour la partie TEST (Bas)
+    setVector(vIPtest, ui->partie3->parentWidget(), "leTest");
+    setVector(vIPtestBinary, ui->partie3->parentWidget(), "lResTestBin");
 
     // 2. Configuration des validateurs et des connexions
     for (int i = 0; i < vIPnetwork.size(); ++i) {
@@ -55,7 +60,7 @@ void Calculatrice::updateUI()
     int cidr = ui->slider->value();
     ui->lNetworkSize->setText(QString::number(cidr));
 
-    // Récupération IP
+    // 1. Récupération IP Principale
     QVector<int> ipValues;
     for (int i = 0; i < vIPnetwork.size(); ++i) {
         QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[i]);
@@ -64,15 +69,22 @@ void Calculatrice::updateUI()
     }
     unsigned int ipAddress = (ipValues[0] << 24) | (ipValues[1] << 16) | (ipValues[2] << 8) | ipValues[3];
 
-    // Calculs Mathématiques
+    //  Calculs Mathématiques
     unsigned int mask = (cidr == 0) ? 0 : (~0u) << (32 - cidr);
+    //  Calcul de l'adresse réseau (Le premier de la plage)
     unsigned int networkAddr = ipAddress & mask;
+
+    //  Calcul de l'adresse de diffusion (Le dernier de la plage)
     unsigned int broadcastAddr = networkAddr | (~mask);
+
+    //  Premier hôte utilisable (Réseau + 1)
     unsigned int firstHost = networkAddr + 1;
+
+    //  Dernier hôte utilisable (Diffusion - 1)
     unsigned int lastHost = broadcastAddr - 1;
     unsigned int numHosts = (cidr > 30) ? 0 : (1 << (32 - cidr)) - 2;
 
-    // Mise à jour des couleurs (Bleu/Jaune)
+    // 3. Mise à jour des couleurs (Bleu/Jaune)
     for (int i = 0; i < vIPnetworkBinary.size(); ++i) {
         BinaryDisplay *binLabel = qobject_cast<BinaryDisplay*>(vIPnetworkBinary[i]);
         if (binLabel) {
@@ -86,7 +98,7 @@ void Calculatrice::updateUI()
         }
     }
 
-    // Helper (Fonction locale) pour afficher les résultats dans les labels de l'UI
+    // 4. Helper pour l'affichage des résultats décimaux et binaires
     auto displayResult = [](unsigned int val, QLabel* l1, QLabel* l2, QLabel* l3, QLabel* l4,
                             QLabel* lb1, QLabel* lb2, QLabel* lb3, QLabel* lb4) {
         int o1 = (val >> 24) & 0xFF;
@@ -105,7 +117,6 @@ void Calculatrice::updateUI()
         if(lb4) lb4->setText(QString("%1").arg(o4, 8, 2, '0'));
     };
 
-    // Appel du helper pour chaque section (Masque, Diffusion, Début, Fin)
     displayResult(mask, ui->lResMask1, ui->lResMask2, ui->lResMask3, ui->lResMask4,
                   ui->lResMaskBin1, ui->lResMaskBin2, ui->lResMaskBin3, ui->lResMaskBin4);
 
@@ -119,6 +130,34 @@ void Calculatrice::updateUI()
                   ui->lResEndBin1, ui->lResEndBin2, ui->lResEndBin3, ui->lResEndBin4);
 
     ui->lResHosts->setText(QString::number(numHosts));
+
+    unsigned int ipTest = 0;
+    for (int i = 0; i < vIPtest.size(); ++i) {
+        QLineEdit *le = qobject_cast<QLineEdit*>(vIPtest[i]);
+        ipTest = (ipTest << 8) | (le ? le->text().toInt() : 0);
+    }
+
+    if ((ipAddress & mask) == (ipTest & mask)) {
+        ui->lResAppartenance->setText("Affirmatif");
+        ui->lResAppartenance->setStyleSheet("background-color: #27ae60; color: white; font-weight: bold; border-radius: 4px; padding: 5px;");
+    } else {
+        ui->lResAppartenance->setText("Négatif");
+        // Style Rouge (Échec)
+        ui->lResAppartenance->setStyleSheet("background-color: #c0392b; color: white; font-weight: bold; border-radius: 4px; padding: 5px;");
+    }
+    // 3. Configuration des validateurs et connexions
+    for (int i = 0; i < vIPtest.size(); ++i) {
+        QLineEdit *le = qobject_cast<QLineEdit*>(vIPtest[i]);
+        BinaryDisplay *bin = qobject_cast<BinaryDisplay*>(vIPtestBinary[i]);
+
+        if (le && bin) {
+            le->setValidator(new IntRangeValidator(0, 255, le));
+            // Relie la saisie au binaire correspondant
+            connect(le, &QLineEdit::textChanged, bin, &BinaryDisplay::updateBinary);
+            // Relie la validation binaire au recalcul global (pour mettre à jour "Affirmatif")
+            connect(bin, &BinaryDisplay::updateValid, this, &Calculatrice::updateUI);
+        }
+    }
 }
 
 void Calculatrice::setVector(QVector<QWidget*> &v, const QWidget *w, QString motif)
