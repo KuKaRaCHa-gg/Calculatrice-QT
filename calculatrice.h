@@ -20,14 +20,16 @@ public:
     ~Calculatrice();
 
 public slots:
-    // On garde la version minuscule pour correspondre au .cpp
     void updateUI();
+    void updateHost();
 
 private:
     Ui::Calculatrice *ui;
 
     QVector<QWidget*> vIPnetwork;       // leIP1_1, leIP1_2...
     QVector<QWidget*> vIPnetworkBinary; // lBinary1_1, lBinary1_2...
+    QVector<QWidget*> vIPtest; // leTest1, leTest2...
+    QVector<QWidget*> vIPtestBinary; // lResTestBin1, lResTestBin2...
 
     void setVector(QVector<QWidget*> &v, const QWidget *w, QString motif);
 };
