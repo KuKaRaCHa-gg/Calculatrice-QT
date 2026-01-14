@@ -18,10 +18,12 @@ Calculatrice::Calculatrice(QWidget *parent)
 
     setVector(vIPnetwork, ui->partie1, "leIP");
     setVector(vIPnetworkBinary, ui->partie1, "lBinary");
+       // 2. AJOUT : Remplissage des vecteurs pour la partie TEST (Bas)
+    setVector(vIPtest, ui->partie3, "leTest");
+    setVector(vIPtestBinary, ui->partie3, "lResTestBin");
 
-    // 2. AJOUT : Remplissage des vecteurs pour la partie TEST (Bas)
-    setVector(vIPtest, ui->partie3->parentWidget(), "leTest");
-    setVector(vIPtestBinary, ui->partie3->parentWidget(), "lResTestBin");
+
+
 
     // 2. Configuration des validateurs et des connexions
     for (int i = 0; i < vIPnetwork.size(); ++i) {
@@ -36,6 +38,21 @@ Calculatrice::Calculatrice(QWidget *parent)
             connect(le, &QLineEdit::textChanged, bin, &BinaryDisplay::updateBinary);
             // Connexion : Binaire valide -> Recalcul de toute l'interface
             connect(bin, &BinaryDisplay::updateValid, this, &Calculatrice::updateUI);
+        }
+    }
+
+    for (int i = 0; i < vIPtest.size(); ++i) {
+        QLineEdit *le = qobject_cast<QLineEdit*>(vIPtest[i]);
+        BinaryDisplay *bin = qobject_cast<BinaryDisplay*>(vIPtestBinary[i]);
+
+        if (le && bin) {
+            IntRangeValidator *validator = new IntRangeValidator(0, 255, le);
+            le->setValidator(validator);
+
+            // Connexion : Changement de texte -> Mise à jour du binaire local
+            connect(le, &QLineEdit::textChanged, bin, &BinaryDisplay::updateBinary);
+            // Connexion : Binaire valide -> Recalcul de toute l'interface
+            connect(bin, &BinaryDisplay::updateValid, this, &Calculatrice::updateHost);
         }
     }
 
@@ -145,20 +162,85 @@ void Calculatrice::updateUI()
         // Style Rouge (Échec)
         ui->lResAppartenance->setStyleSheet("background-color: #c0392b; color: white; font-weight: bold; border-radius: 4px; padding: 5px;");
     }
-    // 3. Configuration des validateurs et connexions
+
+}
+
+void Calculatrice::updateHost()
+{
+    int cidr = ui->slider->value();
+
+    //IP réseau (partie 1)
+    QVector<int> netValues;
+    for (int i = 0; i < vIPnetwork.size(); ++i) {
+        QLineEdit *le = qobject_cast<QLineEdit*>(vIPnetwork[i]);
+        netValues.append(le ? le->text().toInt() : 0);
+    }
+
+    unsigned int networkIP =
+        (netValues[0] << 24) |
+        (netValues[1] << 16) |
+        (netValues[2] << 8)  |
+        netValues[3];
+
+    unsigned int mask = (cidr == 0) ? 0 : (~0u << (32 - cidr));
+    unsigned int networkAddr   = networkIP & mask;
+    unsigned int broadcastAddr = networkAddr | (~mask);
+
+    // IP testée (partie 3)
+
+    QVector<int> testValues;
     for (int i = 0; i < vIPtest.size(); ++i) {
         QLineEdit *le = qobject_cast<QLineEdit*>(vIPtest[i]);
-        BinaryDisplay *bin = qobject_cast<BinaryDisplay*>(vIPtestBinary[i]);
+        testValues.append(le ? le->text().toInt() : 0);
+    }
 
-        if (le && bin) {
-            le->setValidator(new IntRangeValidator(0, 255, le));
-            // Relie la saisie au binaire correspondant
-            connect(le, &QLineEdit::textChanged, bin, &BinaryDisplay::updateBinary);
-            // Relie la validation binaire au recalcul global (pour mettre à jour "Affirmatif")
-            connect(bin, &BinaryDisplay::updateValid, this, &Calculatrice::updateUI);
-        }
+    unsigned int testIP =
+        (testValues[0] << 24) |
+        (testValues[1] << 16) |
+        (testValues[2] << 8)  |
+        testValues[3];
+
+    // Appartenance au réseau
+    bool isInNetwork = (testIP > networkAddr && testIP < broadcastAddr);
+
+    if (isInNetwork) {
+        ui->lResAppartenance->setText("Affirmatif");
+        ui->lResAppartenance->setStyleSheet(
+            "background-color:#27ae60; color:white; border-radius:4px;");
+    } else {
+        ui->lResAppartenance->setText("Négatif");
+        ui->lResAppartenance->setStyleSheet(
+            "background-color:#c0392b; color:white; border-radius:4px;");
+    }
+
+    // Classe IP
+
+    int firstOctet = testValues[0];
+
+    auto resetClasseStyle = [this]() {
+        ui->ClasseALabel->setStyleSheet("");
+        ui->ClasseBLabel->setStyleSheet("");
+        ui->ClasseCLabel->setStyleSheet("");
+        ui->ClasseDLabel->setStyleSheet("");
+        ui->ClasseELabel->setStyleSheet("");
+    };
+
+    resetClasseStyle();
+
+    QLabel *activeClasse = nullptr;
+
+    if (firstOctet >= 1   && firstOctet <= 126) activeClasse = ui->ClasseALabel;
+    else if (firstOctet >= 128 && firstOctet <= 191) activeClasse = ui->ClasseBLabel;
+    else if (firstOctet >= 192 && firstOctet <= 223) activeClasse = ui->ClasseCLabel;
+    else if (firstOctet >= 224 && firstOctet <= 239) activeClasse = ui->ClasseDLabel;
+    else if (firstOctet >= 240 && firstOctet <= 255) activeClasse = ui->ClasseELabel;
+
+    if (activeClasse) {
+        activeClasse->setStyleSheet(
+            "background-color:#3498db; color:white; border-radius:3px;");
     }
 }
+
 
 void Calculatrice::setVector(QVector<QWidget*> &v, const QWidget *w, QString motif)
 {

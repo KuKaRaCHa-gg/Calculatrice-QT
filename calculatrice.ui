@@ -638,147 +638,149 @@ QLabel[objectName^=&quot;lClasse&quot;] {
      </widget>
     </item>
     <item>
-     <layout class="QGridLayout" name="partie3">
-      <item row="0" column="0">
-       <widget class="QLabel" name="tTest">
-        <property name="text">
-         <string>Appartenance de l'adresse au réseau ?</string>
-        </property>
-       </widget>
-      </item>
-      <item row="0" column="3" colspan="5">
-       <widget class="QLabel" name="lResAppartenance">
-        <property name="text">
-         <string>Affirmatif</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="1">
-       <widget class="QLineEdit" name="leTest1">
-        <property name="text">
-         <string>192</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="2">
-       <widget class="QLabel" name="tsep1">
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="3">
-       <widget class="QLineEdit" name="leTest2">
-        <property name="text">
-         <string>168</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="4">
-       <widget class="QLabel" name="tsep2">
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="5">
-       <widget class="QLineEdit" name="leTest3">
-        <property name="text">
-         <string>0</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="6">
-       <widget class="QLabel" name="tsep3">
-        <property name="text">
-         <string>.</string>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="7">
-       <widget class="QLineEdit" name="leTest4">
-        <property name="text">
-         <string>100</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="1">
-       <widget class="BinaryDisplay" name="lResTestBin1">
-        <property name="text">
-         <string>11000000</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="3">
-       <widget class="BinaryDisplay" name="lResTestBin2">
-        <property name="text">
-         <string>10101000</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="5">
-       <widget class="BinaryDisplay" name="lResTestBin3">
-        <property name="text">
-         <string>00000000</string>
-        </property>
-       </widget>
-      </item>
-      <item row="2" column="7">
-       <widget class="BinaryDisplay" name="lResTestBin4">
-        <property name="text">
-         <string>01100100</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="0">
-       <widget class="QLabel" name="ClasseLabel">
-        <property name="text">
-         <string>Classe</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="2">
-       <widget class="QLabel" name="ClasseALabel">
-        <property name="text">
-         <string>A</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="3">
-       <widget class="QLabel" name="ClasseBLabel">
-        <property name="text">
-         <string>B</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="4">
-       <widget class="QLabel" name="ClasseCLabel">
-        <property name="text">
-         <string>C</string>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="5">
-       <widget class="QLabel" name="ClasseDLabel">
-        <property name="text">
-         <string>D</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignmentFlag::AlignCenter</set>
-        </property>
-       </widget>
-      </item>
-      <item row="3" column="6">
-       <widget class="QLabel" name="ClasseELabel">
-        <property name="text">
-         <string>E</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QWidget" name="partie3" native="true">
+      <layout class="QGridLayout" name="section3">
+       <item row="0" column="0">
+        <widget class="QLabel" name="tTest">
+         <property name="text">
+          <string>Appartenance de l'adresse au réseau ?</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="3" colspan="5">
+        <widget class="QLabel" name="lResAppartenance">
+         <property name="text">
+          <string>Affirmatif</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="leTest1">
+         <property name="text">
+          <string>192</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="tsep1">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3">
+        <widget class="QLineEdit" name="leTest2">
+         <property name="text">
+          <string>168</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QLabel" name="tsep2">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLineEdit" name="leTest3">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6">
+        <widget class="QLabel" name="tsep3">
+         <property name="text">
+          <string>.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="7">
+        <widget class="QLineEdit" name="leTest4">
+         <property name="text">
+          <string>100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="BinaryDisplay" name="lResTestBin1">
+         <property name="text">
+          <string>11000000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="3">
+        <widget class="BinaryDisplay" name="lResTestBin2">
+         <property name="text">
+          <string>10101000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="5">
+        <widget class="BinaryDisplay" name="lResTestBin3">
+         <property name="text">
+          <string>00000000</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="7">
+        <widget class="BinaryDisplay" name="lResTestBin4">
+         <property name="text">
+          <string>01100100</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="ClasseLabel">
+         <property name="text">
+          <string>Classe</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLabel" name="ClasseALabel">
+         <property name="text">
+          <string>A</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="3">
+        <widget class="QLabel" name="ClasseBLabel">
+         <property name="text">
+          <string>B</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4">
+        <widget class="QLabel" name="ClasseCLabel">
+         <property name="text">
+          <string>C</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="5">
+        <widget class="QLabel" name="ClasseDLabel">
+         <property name="text">
+          <string>D</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignmentFlag::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="6">
+        <widget class="QLabel" name="ClasseELabel">
+         <property name="text">
+          <string>E</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
     </item>
    </layout>
   </widget>
